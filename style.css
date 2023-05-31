@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+@keyframes slideUp {
+    from{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fd5;
+    height: 75px;
+}
+input[type="checkbox"] {
+    display: none;
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    list-style: none;
+
+}
+
+.nav-item a{
+    text-decoration: none;
+    font-size: larger;
+    color: #1e293b;
+    font-weight: bolder;
+}
+.toggleBtn{
+    display: none;
+  
+  
+}
+.dropdown-list{
+    display: none;
+}
+
+.dropdown-item{
+    list-style: none;
+}
+.dropdown-item a{
+    text-decoration: none;
+    color: #fd5;
+}
+#toggleMenu:checked ~ .dropdown-list{
+    position: fixed;
+    background: #1e293b;
+    color: #fd5;
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw !important;
+    height: 100vh !important;
+    gap: 15px;
+    align-items: center;
+    padding: 20px 35px;
+top: 0;    left: 0;
+animation: slideUp .5s ease-in;
+
+}
+.dropdown-item{
+    opacity: 0;
+}
+.dropdown-item:nth-child(1){
+    animation: slideUp .5s ease-in  forwards;
+    animation-delay: 0.5s;
+}
+.dropdown-item:nth-child(2){
+    animation: slideUp .5s ease-in  forwards;
+    animation-delay: 1s;
+}
+.dropdown-item:nth-child(3){
+    animation: slideUp .5s ease-in  forwards;
+    animation-delay: 1.5s;
+}
+.dropdown-item:nth-child(4){
+    animation: slideUp .5s ease-in  forwards;
+    animation-delay: 2s;
+}
+.closeBtn{
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    background: #fd5;
+    color: #1e293b;
+   padding: 10px 15px ;
+    font-weight: bolder;
+   border-radius: 50%;
+   border: 2px solid #1e293b;
+   transition: all 0.5s ease-in-out;
+}
+.closeBtn:hover{
+    cursor: pointer;
+    background: #1e293b;
+    color: #fff;
+   border: 2px solid #fff;
+
+}
+
+@media screen and (width<=600px) {
+    nav{
+        display: none;
+    }
+    
+    .toggleBtn{
+        display: block;
+        margin-left: auto;
+        margin-right: 2rem;
+        
+    }
+}
+
+@media screen and (width>600px) {
+    #toggleMenu:checked ~ .dropdown-list{
+        display: none;
+    }
+}
